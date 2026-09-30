@@ -1,0 +1,975 @@
+COMPUTED VALUES:
+affinity: {}
+allowEmptyPassword: true
+allowOverrideNone: false
+apacheConfiguration: ""
+args: []
+automountServiceAccountToken: false
+autoscaling:
+  enabled: false
+  maxReplicas: 11
+  minReplicas: 1
+  targetCPU: 50
+  targetMemory: 50
+clusterDomain: cluster.local
+command: []
+common:
+  exampleValue: common-chart
+  global:
+    compatibility:
+      openshift:
+        adaptSecurityContext: auto
+    defaultFips: restricted
+    defaultStorageClass: ""
+    imagePullSecrets: []
+    imageRegistry: ""
+    security:
+      allowInsecureImages: false
+commonAnnotations: {}
+commonLabels: {}
+containerPorts:
+  http: 8080
+  https: 8443
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  enabled: true
+  privileged: false
+  readOnlyRootFilesystem: true
+  runAsGroup: 1001
+  runAsNonRoot: true
+  runAsUser: 1001
+  seLinuxOptions: {}
+  seccompProfile:
+    type: RuntimeDefault
+customHTAccessCM: ""
+customLivenessProbe: {}
+customPostInitScripts: {}
+customReadinessProbe: {}
+customStartupProbe: {}
+diagnosticMode:
+  args:
+  - infinity
+  command:
+  - sleep
+  enabled: false
+enableServiceLinks: true
+existingApacheConfigurationConfigMap: ""
+existingSecret: ""
+existingWordPressConfigurationSecret: ""
+externalCache:
+  host: localhost
+  port: 11211
+externalDatabase:
+  database: bitnami_wordpress
+  existingSecret: ""
+  host: localhost
+  password: ""
+  port: 3306
+  user: bn_wordpress
+extraContainerPorts: []
+extraDeploy: []
+extraEnvVars: []
+extraEnvVarsCM: ""
+extraEnvVarsSecret: ""
+extraVolumeMounts: []
+extraVolumes: []
+fips:
+  openssl: ""
+fullnameOverride: ""
+global:
+  compatibility:
+    openshift:
+      adaptSecurityContext: auto
+  defaultFips: restricted
+  defaultStorageClass: ""
+  imagePullSecrets: []
+  imageRegistry: ""
+  security:
+    allowInsecureImages: false
+hostAliases:
+- hostnames:
+  - status.localhost
+  ip: 127.0.0.1
+htaccessPersistenceEnabled: false
+httpRoute:
+  annotations: {}
+  enabled: false
+  extraRules: []
+  filters: []
+  hostnames:
+  - wordpress.local
+  labels: {}
+  matches:
+  - path:
+      type: PathPrefix
+      value: /
+  parentRefs: []
+image:
+  debug: false
+  digest: ""
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+  registry: registry-1.docker.io
+  repository: bitnami/wordpress
+  tag: latest
+ingress:
+  annotations: {}
+  apiVersion: ""
+  enabled: true
+  extraHosts: []
+  extraPaths: []
+  extraRules: []
+  extraTls: []
+  hostname: wordpress.lab.local
+  ingressClassName: "nginx"
+  path: /
+  pathType: ImplementationSpecific
+  secrets: []
+  selfSigned: false
+  tls: false
+  tlsWwwPrefix: false
+initContainers: []
+kubeVersion: ""
+lifecycleHooks: {}
+livenessProbe:
+  enabled: true
+  failureThreshold: 6
+  initialDelaySeconds: 120
+  periodSeconds: 10
+  successThreshold: 1
+  tcpSocket:
+    port: http
+  timeoutSeconds: 5
+mariadb:
+  architecture: standalone
+  auth:
+    customPasswordFiles: {}
+    database: bitnami_wordpress
+    existingSecret: ""
+    forcePassword: false
+    password: ""
+    replicationPassword: ""
+    replicationUser: replicator
+    rootPassword: ""
+    usePasswordFiles: true
+    username: bn_wordpress
+  clusterDomain: cluster.local
+  common:
+    exampleValue: common-chart
+    global:
+      compatibility:
+        openshift:
+          adaptSecurityContext: auto
+      defaultFips: restricted
+      defaultStorageClass: ""
+      imagePullSecrets: []
+      imageRegistry: ""
+      security:
+        allowInsecureImages: false
+  commonAnnotations: {}
+  commonLabels: {}
+  diagnosticMode:
+    args:
+    - infinity
+    command:
+    - sleep
+    enabled: false
+  enabled: true
+  extraDeploy: []
+  fullnameOverride: ""
+  global:
+    compatibility:
+      openshift:
+        adaptSecurityContext: auto
+    defaultFips: restricted
+    defaultStorageClass: ""
+    imagePullSecrets: []
+    imageRegistry: ""
+    security:
+      allowInsecureImages: false
+  image:
+    debug: false
+    digest: ""
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    registry: registry-1.docker.io
+    repository: bitnami/mariadb
+    tag: latest
+  initdbScripts: {}
+  initdbScriptsConfigMap: ""
+  kubeVersion: ""
+  metrics:
+    annotations:
+      prometheus.io/port: "9104"
+      prometheus.io/scrape: "true"
+    auth:
+      existingSecret: ""
+      password: ""
+      username: exporter
+    containerPorts:
+      http: 9104
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      enabled: true
+      privileged: false
+      readOnlyRootFilesystem: true
+      runAsGroup: 1001
+      runAsNonRoot: true
+      runAsUser: 1001
+      seLinuxOptions: {}
+      seccompProfile:
+        type: RuntimeDefault
+    enabled: false
+    extraArgs:
+      primary: []
+      secondary: []
+    extraVolumeMounts:
+      primary: []
+      secondary: []
+    fips:
+      golang: relaxed
+      openssl: ""
+    image:
+      digest: ""
+      pullPolicy: IfNotPresent
+      pullSecrets: []
+      registry: registry-1.docker.io
+      repository: bitnami/mysqld-exporter
+      tag: latest
+    livenessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 120
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    prometheusRule:
+      additionalLabels: {}
+      enabled: false
+      namespace: ""
+      rules: []
+    readinessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    resources: {}
+    resourcesPreset: nano
+    serviceMonitor:
+      enabled: false
+      honorLabels: false
+      interval: 30s
+      jobLabel: ""
+      labels: {}
+      metricRelabelings: []
+      namespace: ""
+      relabelings: []
+      scrapeTimeout: ""
+      selector: {}
+  nameOverride: ""
+  networkPolicy:
+    addExternalClientAccess: false
+    allowExternal: false
+    allowExternalEgress: true
+    enabled: true
+    extraEgress: []
+    extraIngress: []
+    ingressNSMatchLabels: {}
+    ingressNSPodMatchLabels: {}
+    ingressReleaseMatchLabels:
+      app.kubernetes.io/component: wordpress
+  passwordUpdateJob:
+    annotations: {}
+    args: []
+    automountServiceAccountToken: false
+    backoffLimit: 10
+    command: []
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      enabled: true
+      privileged: false
+      readOnlyRootFilesystem: true
+      runAsGroup: 1001
+      runAsNonRoot: true
+      runAsUser: 1001
+      seLinuxOptions: {}
+      seccompProfile:
+        type: RuntimeDefault
+    customLivenessProbe: {}
+    customReadinessProbe: {}
+    customStartupProbe: {}
+    enabled: false
+    extraCommands: ""
+    extraEnvVars: []
+    extraEnvVarsCM: ""
+    extraEnvVarsSecret: ""
+    extraVolumeMounts: []
+    extraVolumes: []
+    fips:
+      openssl: ""
+    hostAliases: []
+    initContainers: []
+    podAnnotations: {}
+    podLabels: {}
+    podSecurityContext:
+      enabled: true
+      fsGroup: 1001
+      fsGroupChangePolicy: Always
+      supplementalGroups: []
+      sysctls: []
+    previousPasswords:
+      existingSecret: ""
+      password: ""
+      replicationPassword: ""
+      rootPassword: ""
+    resources: {}
+    resourcesPreset: micro
+  primary:
+    affinity: {}
+    args: []
+    automountServiceAccountToken: false
+    command: []
+    configuration: |-
+      [mysqld]
+      skip-name-resolve
+      explicit_defaults_for_timestamp
+      basedir=/opt/bitnami/mariadb
+      datadir=/bitnami/mariadb/data
+      plugin_dir=/opt/bitnami/mariadb/plugin
+      port={{ .Values.primary.containerPorts.mysql }}
+      socket=/opt/bitnami/mariadb/tmp/mysql.sock
+      tmpdir=/opt/bitnami/mariadb/tmp
+      max_allowed_packet=16M
+      bind-address=*
+      pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid
+      log-error=/opt/bitnami/mariadb/logs/mysqld.log
+      character-set-server=UTF8
+      collation-server=utf8_general_ci
+      slow_query_log=0
+      long_query_time=10.0
+      binlog_expire_logs_seconds=2592000
+      {{- if .Values.tls.enabled }}
+      ssl_cert=/opt/bitnami/mariadb/certs/tls.crt
+      ssl_key=/opt/bitnami/mariadb/certs/tls.key
+      {{- if or .Values.tls.autoGenerated.enabled .Values.tls.ca .Values.tls.existingSecret }}
+      ssl_ca=/opt/bitnami/mariadb/certs/ca.crt
+      {{- end }}
+      {{- end }}
+      {{- if .Values.tde.enabled }}
+      plugin_load_add=file_key_management
+      file_key_management_filename=/opt/bitnami/mariadb/tde/{{ .Values.tde.encryptedKeyFilename }}
+      file_key_management_filekey=FILE:/opt/bitnami/mariadb/tde/{{ .Values.tde.randomKeyFilename }}
+      file_key_management_encryption_algorithm={{ .Values.tde.fileKeyManagementEncryptionAlgorithm }}
+      innodb_encrypt_tables={{ .Values.tde.innodbEncryptTables }}
+      innodb_encrypt_log={{ .Values.tde.innodbEncryptLog }}
+      innodb_encrypt_temporary_tables={{ .Values.tde.innodbEncryptTemporaryTables }}
+      innodb_encryption_threads={{ .Values.tde.innodbEncryptionThreads }}
+      encrypt_tmp_disk_tables={{ .Values.tde.encryptTmpDiskTables }}
+      encrypt_tmp_files={{ .Values.tde.encryptTmpTiles }}
+      encrypt_binlog={{ .Values.tde.encryptBINLOG }}
+      aria_encrypt_tables={{ .Values.tde.ariaEncryptTables }}
+      {{- end }}
+
+      [client]
+      port=3306
+      socket=/opt/bitnami/mariadb/tmp/mysql.sock
+      default-character-set=UTF8
+      plugin_dir=/opt/bitnami/mariadb/plugin
+
+      [manager]
+      port=3306
+      socket=/opt/bitnami/mariadb/tmp/mysql.sock
+      pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid
+    containerPorts:
+      mysql: 3306
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      enabled: true
+      privileged: false
+      readOnlyRootFilesystem: true
+      runAsGroup: 1001
+      runAsNonRoot: true
+      runAsUser: 1001
+      seLinuxOptions: {}
+      seccompProfile:
+        type: RuntimeDefault
+    customLivenessProbe: {}
+    customReadinessProbe: {}
+    customStartupProbe: {}
+    enableServiceLinks: true
+    existingConfigmap: ""
+    extraEnvVars: []
+    extraEnvVarsCM: ""
+    extraEnvVarsSecret: ""
+    extraFlags: ""
+    extraVolumeMounts: []
+    extraVolumes: []
+    fips:
+      openssl: ""
+    hostAliases: []
+    initContainers: []
+    lifecycleHooks: {}
+    livenessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 120
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    name: primary
+    nodeAffinityPreset:
+      key: ""
+      type: ""
+      values: []
+    nodeSelector: {}
+    pdb:
+      create: true
+      maxUnavailable: ""
+      minAvailable: ""
+    persistence:
+      accessModes:
+      - ReadWriteOnce
+      annotations: {}
+      enabled: true
+      existingClaim: ""
+      labels: {}
+      selector: {}
+      size: 8Gi
+      storageClass: ""
+      subPath: ""
+    podAffinityPreset: ""
+    podAnnotations: {}
+    podAntiAffinityPreset: soft
+    podLabels: {}
+    podManagementPolicy: ""
+    podSecurityContext:
+      enabled: true
+      fsGroup: 1001
+      fsGroupChangePolicy: Always
+      supplementalGroups: []
+      sysctls: []
+    priorityClassName: ""
+    readinessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    resources: {}
+    resourcesPreset: micro
+    revisionHistoryLimit: 10
+    runtimeClassName: ""
+    schedulerName: ""
+    service:
+      annotations: {}
+      clusterIP: ""
+      externalTrafficPolicy: Cluster
+      extraPorts: []
+      headless:
+        annotations: {}
+      loadBalancerIP: ""
+      loadBalancerSourceRanges: []
+      nodePorts:
+        mysql: ""
+      ports:
+        metrics: 9104
+        mysql: 3306
+      sessionAffinity: None
+      sessionAffinityConfig: {}
+      type: ClusterIP
+    sidecars: []
+    startupProbe:
+      enabled: false
+      failureThreshold: 10
+      initialDelaySeconds: 120
+      periodSeconds: 15
+      successThreshold: 1
+      timeoutSeconds: 5
+    startupWaitOptions: {}
+    terminationGracePeriodSeconds: ""
+    tolerations: []
+    topologySpreadConstraints: []
+    updateStrategy:
+      type: RollingUpdate
+  rbac:
+    create: false
+  runtimeClassName: ""
+  schedulerName: ""
+  secondary:
+    affinity: {}
+    args: []
+    automountServiceAccountToken: false
+    command: []
+    configuration: |-
+      [mysqld]
+      skip-name-resolve
+      explicit_defaults_for_timestamp
+      basedir=/opt/bitnami/mariadb
+      datadir=/bitnami/mariadb/data
+      plugin_dir=/opt/bitnami/mariadb/plugin
+      port={{ .Values.secondary.containerPorts.mysql }}
+      socket=/opt/bitnami/mariadb/tmp/mysql.sock
+      tmpdir=/opt/bitnami/mariadb/tmp
+      max_allowed_packet=16M
+      bind-address=0.0.0.0
+      pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid
+      log-error=/opt/bitnami/mariadb/logs/mysqld.log
+      character-set-server=UTF8
+      collation-server=utf8_general_ci
+      slow_query_log=0
+      long_query_time=10.0
+      binlog_expire_logs_seconds=2592000
+      {{- if .Values.tls.enabled }}
+      ssl_cert=/opt/bitnami/mariadb/certs/tls.crt
+      ssl_key=/opt/bitnami/mariadb/certs/tls.key
+      {{- if or .Values.tls.autoGenerated.enabled .Values.tls.ca .Values.tls.existingSecret }}
+      ssl_ca=/opt/bitnami/mariadb/certs/ca.crt
+      {{- end }}
+      {{- end }}
+
+      [client]
+      port=3306
+      socket=/opt/bitnami/mariadb/tmp/mysql.sock
+      default-character-set=UTF8
+      plugin_dir=/opt/bitnami/mariadb/plugin
+
+      [manager]
+      port=3306
+      socket=/opt/bitnami/mariadb/tmp/mysql.sock
+      pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid
+    containerPorts:
+      mysql: 3306
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      enabled: true
+      privileged: false
+      readOnlyRootFilesystem: true
+      runAsGroup: 1001
+      runAsNonRoot: true
+      runAsUser: 1001
+      seLinuxOptions: {}
+      seccompProfile:
+        type: RuntimeDefault
+    customLivenessProbe: {}
+    customReadinessProbe: {}
+    customStartupProbe: {}
+    enableServiceLinks: true
+    existingConfigmap: ""
+    extraEnvVars: []
+    extraEnvVarsCM: ""
+    extraEnvVarsSecret: ""
+    extraFlags: ""
+    extraVolumeMounts: []
+    extraVolumes: []
+    fips:
+      openssl: ""
+    hostAliases: []
+    initContainers: []
+    lifecycleHooks: {}
+    livenessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 120
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    name: secondary
+    nodeAffinityPreset:
+      key: ""
+      type: ""
+      values: []
+    nodeSelector: {}
+    pdb:
+      create: true
+      maxUnavailable: ""
+      minAvailable: ""
+    persistence:
+      accessModes:
+      - ReadWriteOnce
+      annotations: {}
+      enabled: true
+      labels: {}
+      selector: {}
+      size: 8Gi
+      storageClass: ""
+      subPath: ""
+    podAffinityPreset: ""
+    podAnnotations: {}
+    podAntiAffinityPreset: soft
+    podLabels: {}
+    podManagementPolicy: ""
+    podSecurityContext:
+      enabled: true
+      fsGroup: 1001
+      fsGroupChangePolicy: Always
+      supplementalGroups: []
+      sysctls: []
+    priorityClassName: ""
+    readinessProbe:
+      enabled: true
+      failureThreshold: 3
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+    replicaCount: 1
+    resources: {}
+    resourcesPreset: small
+    revisionHistoryLimit: 10
+    runtimeClassName: ""
+    schedulerName: ""
+    service:
+      annotations: {}
+      clusterIP: ""
+      externalTrafficPolicy: Cluster
+      extraPorts: []
+      loadBalancerIP: ""
+      loadBalancerSourceRanges: []
+      nodePorts:
+        mysql: ""
+      ports:
+        metrics: 9104
+        mysql: 3306
+      sessionAffinity: None
+      sessionAffinityConfig: {}
+      type: ClusterIP
+    sidecars: []
+    startupProbe:
+      enabled: false
+      failureThreshold: 10
+      initialDelaySeconds: 120
+      periodSeconds: 15
+      successThreshold: 1
+      timeoutSeconds: 5
+    startupWaitOptions: {}
+    terminationGracePeriodSeconds: ""
+    tolerations: []
+    topologySpreadConstraints: []
+    updateStrategy:
+      type: RollingUpdate
+  serviceAccount:
+    annotations: {}
+    automountServiceAccountToken: false
+    create: true
+    name: ""
+  serviceBindings:
+    enabled: false
+  tde:
+    ariaEncryptTables: "ON"
+    enabled: false
+    encryptBINLOG: "ON"
+    encryptTmpDiskTables: "ON"
+    encryptTmpTiles: "ON"
+    encryptedKeyFilename: keyfile.enc
+    existingSecret: ""
+    fileKeyManagementEncryptionAlgorithm: AES_CTR
+    innodbEncryptLog: "ON"
+    innodbEncryptTables: FORCE
+    innodbEncryptTemporaryTables: "ON"
+    innodbEncryptionThreads: 4
+    randomKeyFilename: keyfile.key
+    secretsStoreProvider:
+      enabled: false
+      provider: vault
+      vault:
+        address: ""
+        authMountPath: ""
+        encryptedKeySecretKey: ""
+        encryptedKeySecretPath: ""
+        randomKeySecretKey: ""
+        randomKeySecretPath: ""
+        roleName: ""
+  tls:
+    autoGenerated:
+      certManager:
+        duration: 2160h
+        existingIssuer: ""
+        existingIssuerKind: ""
+        keyAlgorithm: RSA
+        keySize: 2048
+        renewBefore: 360h
+      enabled: true
+      engine: helm
+      extraSANs: []
+      loopback: false
+    ca: ""
+    cert: ""
+    certCAFilename: ""
+    certFilename: tls.crt
+    certKeyFilename: tls.key
+    enabled: false
+    existingSecret: ""
+    key: ""
+  volumePermissions:
+    enabled: false
+    fips:
+      openssl: ""
+    image:
+      digest: ""
+      pullPolicy: IfNotPresent
+      pullSecrets: []
+      registry: registry-1.docker.io
+      repository: bitnami/os-shell
+      tag: latest
+    resources: {}
+    resourcesPreset: nano
+memcached:
+  auth:
+    enabled: false
+    existingPasswordSecret: ""
+    password: ""
+    username: ""
+  enabled: false
+  fips:
+    openssl: ""
+  resources: {}
+  resourcesPreset: nano
+  service:
+    port: 11211
+metrics:
+  containerPorts:
+    metrics: 9117
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    enabled: true
+    privileged: false
+    readOnlyRootFilesystem: true
+    runAsGroup: 1001
+    runAsNonRoot: true
+    runAsUser: 1001
+    seLinuxOptions: {}
+    seccompProfile:
+      type: RuntimeDefault
+  customLivenessProbe: {}
+  customReadinessProbe: {}
+  customStartupProbe: {}
+  enabled: false
+  fips:
+    golang: restricted
+    openssl: ""
+  image:
+    digest: ""
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    registry: registry-1.docker.io
+    repository: bitnami/apache-exporter
+    tag: latest
+  livenessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 15
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  podAnnotations: {}
+  readinessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 3
+  resources: {}
+  resourcesPreset: nano
+  service:
+    annotations:
+      prometheus.io/port: '{{ .Values.metrics.containerPorts.metrics }}'
+      prometheus.io/scrape: "true"
+    ports:
+      metrics: 9150
+  serviceMonitor:
+    enabled: false
+    honorLabels: false
+    interval: ""
+    jobLabel: ""
+    labels: {}
+    metricRelabelings: []
+    namespace: ""
+    relabelings: []
+    scrapeTimeout: ""
+    selector: {}
+  startupProbe:
+    enabled: false
+    failureThreshold: 15
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+multisite:
+  enable: false
+  enableNipIoRedirect: false
+  host: ""
+  networkType: subdomain
+nameOverride: ""
+networkPolicy:
+  allowExternal: true
+  allowExternalEgress: true
+  enabled: true
+  extraEgress: []
+  extraIngress: []
+  ingressNSMatchLabels: {}
+  ingressNSPodMatchLabels: {}
+nodeAffinityPreset:
+  key: ""
+  type: ""
+  values: []
+nodeSelector: {}
+overrideDatabaseSettings: false
+pdb:
+  create: true
+  maxUnavailable: ""
+  minAvailable: ""
+persistence:
+  accessModes:
+  - ReadWriteOnce
+  annotations: {}
+  dataSource: {}
+  enabled: true
+  existingClaim: ""
+  selector: {}
+  size: 10Gi
+  storageClass: ""
+podAffinityPreset: ""
+podAnnotations: {}
+podAntiAffinityPreset: soft
+podLabels: {}
+podSecurityContext:
+  enabled: true
+  fsGroup: 1001
+  fsGroupChangePolicy: Always
+  supplementalGroups: []
+  sysctls: []
+priorityClassName: ""
+readinessProbe:
+  enabled: true
+  failureThreshold: 6
+  httpGet:
+    httpHeaders: []
+    path: /wp-login.php
+    port: '{{ .Values.wordpressScheme }}'
+    scheme: '{{ .Values.wordpressScheme | upper }}'
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+replicaCount: 3
+resources: {}
+resourcesPreset: micro
+runtimeClassName: ""
+schedulerName: ""
+secondaryIngress:
+  annotations: {}
+  apiVersion: ""
+  enabled: false
+  extraHosts: []
+  extraPaths: []
+  extraRules: []
+  extraTls: []
+  hostname: wordpress.local
+  ingressClassName: ""
+  path: /
+  pathType: ImplementationSpecific
+  secrets: []
+  selfSigned: false
+  tls: false
+  tlsWwwPrefix: false
+service:
+  annotations: {}
+  clusterIP: ""
+  externalTrafficPolicy: Cluster
+  extraPorts: []
+  httpsTargetPort: https
+  loadBalancerIP: ""
+  loadBalancerSourceRanges: []
+  nodePorts:
+    http: ""
+    https: ""
+  ports:
+    http: 80
+    https: 443
+  sessionAffinity: None
+  sessionAffinityConfig: {}
+  type: LoadBalancer
+serviceAccount:
+  annotations: {}
+  automountServiceAccountToken: false
+  create: true
+  name: ""
+sidecars: []
+smtpExistingSecret: ""
+smtpFromEmail: ""
+smtpFromName: ""
+smtpHost: ""
+smtpPassword: ""
+smtpPort: ""
+smtpProtocol: ""
+smtpUser: ""
+startupProbe:
+  enabled: false
+  failureThreshold: 6
+  httpGet:
+    httpHeaders: []
+    path: /wp-login.php
+    port: '{{ .Values.wordpressScheme }}'
+    scheme: '{{ .Values.wordpressScheme | upper }}'
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+terminationGracePeriodSeconds: ""
+tolerations: []
+topologySpreadConstraints: []
+updateStrategy:
+  type: RollingUpdate
+usePasswordFiles: true
+volumePermissions:
+  containerSecurityContext:
+    runAsUser: 0
+    seLinuxOptions: {}
+  enabled: false
+  fips:
+    openssl: ""
+  image:
+    digest: ""
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    registry: registry-1.docker.io
+    repository: bitnami/os-shell
+    tag: latest
+  resources: {}
+  resourcesPreset: nano
+wordpressBlogName: LX-K demo blog
+wordpressConfiguration: ""
+wordpressConfigureCache: false
+wordpressEmail: user@example.com
+wordpressExtraConfigContent: ""
+wordpressFirstName: FirstName
+wordpressHost: ""
+wordpressLastName: LastName
+wordpressPassword: ""
+wordpressPlugins: none
+wordpressScheme: http
+wordpressSkipInstall: false
+wordpressTablePrefix: wp_
+wordpressUsername: user
