@@ -1,0 +1,10 @@
+
+Port 2222
+PermitRootLogin no
+Include /etc/ssh/sshd_config.d/*.conf
+KbdInteractiveAuthentication no
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_* COLORTERM NO_COLOR
+Subsystem	sftp	/usr/lib/openssh/sftp-server
+

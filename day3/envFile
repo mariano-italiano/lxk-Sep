@@ -1,0 +1,10 @@
+# my env file for app XYZ
+
+# Nazwa brancha
+branchName=develop
+
+# versja aplikacji XYZ
+version=1.2.0
+
+# shell wykonawczy dla init container
+execShell=/bin/ksh 

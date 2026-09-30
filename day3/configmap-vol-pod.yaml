@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-vol-pod
+spec:
+  volumes:
+    - name: cm-vol 
+      configMap:
+        name: my-configmap
+  containers:
+  - image: nginx
+    name: web
+    volumeMounts: 
+    - name: cm-vol 
+      mountPath: /etc/config
+

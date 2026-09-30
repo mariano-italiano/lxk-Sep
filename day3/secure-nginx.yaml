@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: secure-nginx
+  name: secure-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: secure-nginx
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: secure-nginx
+    spec:
+      volumes:
+      - name: config-volume
+        configMap:
+          name: nginx-config
+      - name: htpasswd-volume
+        secret:
+          secretName: nginx-htpasswd
+      containers:
+      - image: nginx
+        name: nginx
+        volumeMounts:
+          - name: config-volume
+            mountPath: /etc/nginx
+          - name: htpasswd-volume
+            mountPath: /etc/nginx/conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: secure-nginx
+  name: secure-nginx-svc
+spec:
+  ports:
+  - port: 80
+    nodePort: 30080
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: secure-nginx
+  type: NodePort

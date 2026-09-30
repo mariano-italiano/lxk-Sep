@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FlowerShop</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#fff8fb;color:#352535}
+header{background:#fff;padding:18px 8%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 12px #0001}
+.logo{font-size:25px;font-weight:bold;color:#d14d72}
+nav a{color:#57334a;text-decoration:none;margin-left:22px}
+.hero{padding:75px 20px;text-align:center;background:linear-gradient(135deg,#ffe4ec,#e8f5df)}
+.hero h1{font-size:43px;color:#743b58;margin-bottom:12px}
+.hero p{margin-bottom:25px;color:#654}
+.btn{background:#d14d72;color:white;padding:13px 25px;border-radius:25px;text-decoration:none;display:inline-block}
+.container{max-width:1100px;margin:45px auto;padding:0 20px}
+.container h2{text-align:center;margin-bottom:25px;color:#743b58}
+.flowers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 5px 18px #9b45601a}
+.photo{height:190px;background:linear-gradient(135deg,#ffd1df,#e5f2d7);display:flex;align-items:center;justify-content:center;font-size:70px}
+.info{padding:18px}
+.info h3{color:#743b58;margin-bottom:7px}
+.price{color:#d14d72;font-size:20px;font-weight:bold;margin:12px 0}
+.buy{display:block;text-align:center;background:#743b58;color:white;padding:10px;border-radius:8px;text-decoration:none}
+footer{margin-top:50px;background:#57334a;color:white;text-align:center;padding:25px}
+@media(max-width:650px){nav{display:none}.hero h1{font-size:32px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🌸 FlowerShop</div>
+  <nav><a href="#">Kwiaty</a><a href="#">Bukiety</a><a href="#">Dla firm</a><a href="#">Kontakt</a></nav>
+</header>
+
+<section class="hero">
+  <h1>Kwiaty, które mówią więcej 🌷</h1>
+  <p>Piękne bukiety na każdą okazję — zamów prosto i szybko.</p>
+  <a href="#" class="btn">Zobacz kwiaty</a>
+</section>
+
+<main class="container">
+  <h2>🌺 Najpopularniejsze bukiety</h2>
+  <div class="flowers">
+    <div class="card"><div class="photo">🌹</div><div class="info"><h3>Czerwone róże</h3><p>Elegancki bukiet 15 róż.</p><div class="price">89 zł</div><a href="#" class="buy">Dodaj do koszyka</a></div></div>
+    <div class="card"><div class="photo">🌷</div><div class="info"><h3>Wiosenna radość</h3><p>Kolorowy bukiet tulipanów.</p><div class="price">69 zł</div><a href="#" class="buy">Dodaj do koszyka</a></div></div>
+    <div class="card"><div class="photo">💐</div><div class="info"><h3>Pastelowy bukiet</h3><p>Delikatne kwiaty w pastelowych kolorach.</p><div class="price">99 zł</div><a href="#" class="buy">Dodaj do koszyka</a></div></div>
+  </div>
+</main>
+
+<footer>© 2026 FlowerShop — Kwiaty z dostawą pod Twoje drzwi 🌸</footer>
+</body>
+</html>
+

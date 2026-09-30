@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-configmap
+data:
+  key1: value1
+  key2: "true"
+  version: "3.1.2"
+  config.json: |
+    {"attr1": "val1",
+    "attr2": "val2"} 
+  anotherkey: |
+    to jest kloejny klucz
+    w mojej confgmapie
+    jako another key value 
